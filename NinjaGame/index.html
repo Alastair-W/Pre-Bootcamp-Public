@@ -7,13 +7,6 @@
         var leftValue = 450, topValue = 100, walkDirection = 'down', walkValue = 1;
 
         function update() {
-            document.getElementById("character").style.left = leftValue+"px";
-            document.getElementById("character").style.top = topValue+"px";
-            document.getElementById("character").style.backgroundImage = "url('img/"+walkDirection+walkValue+".png')";
-            }
-            
-            document.onkeydown = function(e) {
-            console.log(e);
             if (walkValue == 2) {
                 walkValue = 1;
             }
@@ -21,7 +14,13 @@
             else if (walkValue == 1) {
                 walkValue = 2;
             }
+            document.getElementById("character").style.left = leftValue+"px";
+            document.getElementById("character").style.top = topValue+"px";
+            document.getElementById("character").style.backgroundImage = "url('img/"+walkDirection+walkValue+".png')";
+            }
             
+            document.onkeydown = function(e) {
+            console.log(e);
             if(e.keyCode == 37 && leftValue > 0) { //LEFT
                 leftValue = leftValue - 10;
                 walkDirection = 'left';
