@@ -56,12 +56,17 @@
             left: 40px;
             top: 40px;
         }
+
+        #score {
+            color: red;
+            font-size: 20;
+        }
         </style>
     </head>
     <body>
         <div id ='world'></div>
         <div id='ninjaman'></div>
-        <div id='score'></div>
+        <div id='score'>SCORE:</div>
     </body>
     <script type="text/javascript">
         var world = [];
@@ -132,7 +137,6 @@
         console.log("Map has "+mapSize.x+" columns and",+mapSize.y+" rows");
 
         var points = 0;
-
         var ninjamanLocation = {
         }
 
@@ -202,6 +206,7 @@
 
                 console.log(ninjamanLocation);
                 console.log(points);
+                document.getElementById('score').innerHTML = "SCORE: "+points;
     
         move()
         drawWorld()
