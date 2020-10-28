@@ -153,15 +153,26 @@ var ghostMoveOptions = {
 
 var randomIndex = 0;
 var ghostMovement = 0;
-console.log(ghostLocation.x-1);
-console.log(ghostLocation.x+1);
-console.log(ghostLocation.y+1);
-console.log(ghostLocation.y-1);
+console.log(max_cols);
+console.log(world[0].length);
 function ghostDirection(ghostLocation) {
     var newArray = [ghostLocation.x-1, ghostLocation.x+1, ghostLocation.y+1, ghostLocation.y-1];
-    for (var f in newArray; f < newArray.length; f++) {
+    for (var f = 0; f == 2; f++) {
+        if (newArray[0] == 0 || newArray[1] == world[0].length){
+        //Can't move
+        }
+        else {
+        //Can move
+        }
+    }    
+    for (var f = 2; f <newArray.length; f++) {
+        if (newArray[2] == world.length || newArray[1] == 0){
+        //Can move
+        }
+        else {
+        //Can't move
+        }
     }
-
     
     if (ghostLocation.x+1 ==0 && ghostLocation.x-1 == 0 && ghostLocation.y+1 == 0) { //CAN ONLY GO UP
         randomIndex = 3;
