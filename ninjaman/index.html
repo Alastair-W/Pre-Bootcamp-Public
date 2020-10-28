@@ -225,16 +225,27 @@
             document.getElementById('ghost').style.top = (ghostLocation.y)*40+"px";
             
         }
-        
-        // setInterval(function(),1000); {
-            
+        // console.log(ghostLocation.x);
+        // var speed = setInterval(ghostMove, 1000);
+        // function ghostMove() {      ;
+        //     if (ghostLocation.x-1 > 1 ) { //GO LEFT
+        //         ghostLocation.x == ghostLocation.x-1;
+        //     }
+        //     else if (world[ghostLocation.y][ghostLocation.x+1] != 0) { //GO RIGHT
+        //             ghostLocation.x++;
+        //     }
+        //     else if (world[ghostLocation.y+1][ghostLocation.x] != 0) { //GO DOWN
+        //             ghostLocation.y++;
+        //     }
+        //     else if (world[ghostLocation.y-1][ghostLocation.x] != 0) { //GO UP
+        //             ghostLocation.y--;
+        //     }
+        //     else if (ghostLocation.x == ninjamanLocation.x && ghostLocation.y == ninjamanLocation.y) {
+        //         clearInterval(speed);
+        //     }
+        // }
 
 
-
-        function ghostMove() {
-                var moveScore = Math.floor(Math.random() * 3);
-                console.log("Random Number: "+moveScore);
-        }
 
 
 
@@ -288,7 +299,7 @@
         move()
         endGame()
         drawWorld()
-        
+        ghostMove()
         }
 
     
