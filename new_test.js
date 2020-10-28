@@ -153,101 +153,107 @@ var ghostMoveOptions = {
 
 var randomIndex = 0;
 var ghostMovement = 0;
-console.log(max_cols);
+//console.log(max_cols);
 console.log(world[0].length);
+var availableMoves = [];
 function ghostDirection(ghostLocation) {
-    var newArray = [ghostLocation.x-1, ghostLocation.x+1, ghostLocation.y+1, ghostLocation.y-1];
+    var newArray = [ghostLocation.x, ghostLocation.x, ghostLocation.y, ghostLocation.y];
+    //var newArray = [ghostLocation.x-1, ghostLocation.x+1, ghostLocation.y+1, ghostLocation.y-1];
     for (var f = 0; f == 2; f++) {
         if (newArray[0] == 0 || newArray[1] == world[0].length){
         //Can't move
         }
         else {
-        //Can move
+        availableMoves = [f];
         }
     }    
     for (var f = 2; f <newArray.length; f++) {
         if (newArray[2] == world.length || newArray[1] == 0){
-        //Can move
-        }
-        else {
         //Can't move
         }
+        else {
+        availableMoves = [f];
+        }
     }
-    
-    if (ghostLocation.x+1 ==0 && ghostLocation.x-1 == 0 && ghostLocation.y+1 == 0) { //CAN ONLY GO UP
-        randomIndex = 3;
-    }
-    else if (ghostLocation.x+1 ==0 && ghostLocation.x-1 == 0 && ghostLocation.y-1 == 0) { //CAN ONLY GO DOWN
-        randomIndex = 2;
-    }
-    else if (ghostLocation.x-1 ==0 && ghostLocation.y-1 == 0 && ghostLocation.y+1 == 0) { //CAN ONLY GO RIGHT
-        randomIndex = 1;
-    }
-    else if (ghostLocation.x+1 ==0 && ghostLocation.y-1 == 0 && ghostLocation.y+1 == 0) { //CAN ONLY GO LEFT
-        randomIndex = 0;
-    }
-    else if (ghostLocation.x-1 == 0 && ghostLocation.y+1 == 0) { //CAN'T GO LEFT OR DOWN
-        var notLeftOrDown = [1,3];
-        randomIndex = Math.floor(Math.random() * notLeftOrDown.length);
-    }
-    else if (ghostLocation.x-1 == 0 && ghostLocation.y-1 == 0) { //CAN'T GO LEFT OR UP
-        var notLeftOrUp = [1,2];
-        randomIndex = Math.floor(Math.random() * notLeftOrUp.length);
-    }
-    else if (ghostLocation.x+1 == 0 && ghostLocation.y+1 == 0) { //CAN'T GO RIGHT OR DOWN
-        var notRightOrDown = [0,3];
-        randomIndex = Math.floor(Math.random() * notRightOrDown.length);
-    }
-    else if (ghostLocation.x+1 == 0 && ghostLocation.y-1 == 0) { //CAN'T GO RIGHT OR UP
-        var notRightOrUp = [0,2];
-        randomIndex = Math.floor(Math.random() * notRightOrUp.length);
-    }
-    else if (ghostLocation.x-1 == 0 && ghostLocation.x+1 == 0) { //CAN'T GO LEFT OR RIGHT
-        var notLeftOrRight = [2,3];
-        randomIndex = Math.floor(Math.random() * notLeftOrRight.length);
-    }
-    else if (ghostLocation.y+1 == 0 && ghostLocation.y-1 == 0) { //CAN'T GO DOWN OR UP
-        var notDownOrUp = [0,1];
-        randomIndex = Math.floor(Math.random() * notDownOrUp.length);
-    }
-    else if (ghostLocation.x-1 == 0) { //CAN'T GO LEFT
-        var notLeft = [1,2,3];
-        randomIndex = Math.floor(Math.random() * notLeft.length);
-    }
-    else if (ghostLocation.x+1 == 0) { //CAN'T GO RIGHT
-        var notRight = [0,2,3];
-        randomIndex = Math.floor(Math.random() * notRight.length);
-    }
-    else if (ghostLocation.y+1 == 0) { //CAN'T GO DOWN
-        var notDown = [0,1,3];
-        randomIndex = Math.floor(Math.random() * notDown.length);
-    }
-    else if (ghostLocation.y-1 == 0) { //CAN'T GO UP
-        notUp = [0,1,2];
-        randomIndex = Math.floor(Math.random() * notUp.length);
-    }
-    ghostMovement = Object.values(ghostMoveOptions)[randomIndex];
-console.log(randomIndex);
-}
-
-function ghostStep() {
-    if (randomIndex == 0) {
-        ghostLocation.x-1;
-    }
-    else if (randomIndex == 1) {
-        ghostLocation.x+1;
-    }
-    else if (randomIndex == 2) {
-        ghostLocation.y+1;
-    }
-    else if (randomIndex == 3) {
-        ghostLocation.y-1;
-    }
-console.log(ghostMovement);
-console.log(ghostLocation);
+console.log(availableMoves);
 }
 ghostDirection()
-ghostStep()
+
+
+//     if (ghostLocation.x+1 ==0 && ghostLocation.x-1 == 0 && ghostLocation.y+1 == 0) { //CAN ONLY GO UP
+//         randomIndex = 3;
+//     }
+//     else if (ghostLocation.x+1 ==0 && ghostLocation.x-1 == 0 && ghostLocation.y-1 == 0) { //CAN ONLY GO DOWN
+//         randomIndex = 2;
+//     }
+//     else if (ghostLocation.x-1 ==0 && ghostLocation.y-1 == 0 && ghostLocation.y+1 == 0) { //CAN ONLY GO RIGHT
+//         randomIndex = 1;
+//     }
+//     else if (ghostLocation.x+1 ==0 && ghostLocation.y-1 == 0 && ghostLocation.y+1 == 0) { //CAN ONLY GO LEFT
+//         randomIndex = 0;
+//     }
+//     else if (ghostLocation.x-1 == 0 && ghostLocation.y+1 == 0) { //CAN'T GO LEFT OR DOWN
+//         var notLeftOrDown = [1,3];
+//         randomIndex = Math.floor(Math.random() * notLeftOrDown.length);
+//     }
+//     else if (ghostLocation.x-1 == 0 && ghostLocation.y-1 == 0) { //CAN'T GO LEFT OR UP
+//         var notLeftOrUp = [1,2];
+//         randomIndex = Math.floor(Math.random() * notLeftOrUp.length);
+//     }
+//     else if (ghostLocation.x+1 == 0 && ghostLocation.y+1 == 0) { //CAN'T GO RIGHT OR DOWN
+//         var notRightOrDown = [0,3];
+//         randomIndex = Math.floor(Math.random() * notRightOrDown.length);
+//     }
+//     else if (ghostLocation.x+1 == 0 && ghostLocation.y-1 == 0) { //CAN'T GO RIGHT OR UP
+//         var notRightOrUp = [0,2];
+//         randomIndex = Math.floor(Math.random() * notRightOrUp.length);
+//     }
+//     else if (ghostLocation.x-1 == 0 && ghostLocation.x+1 == 0) { //CAN'T GO LEFT OR RIGHT
+//         var notLeftOrRight = [2,3];
+//         randomIndex = Math.floor(Math.random() * notLeftOrRight.length);
+//     }
+//     else if (ghostLocation.y+1 == 0 && ghostLocation.y-1 == 0) { //CAN'T GO DOWN OR UP
+//         var notDownOrUp = [0,1];
+//         randomIndex = Math.floor(Math.random() * notDownOrUp.length);
+//     }
+//     else if (ghostLocation.x-1 == 0) { //CAN'T GO LEFT
+//         var notLeft = [1,2,3];
+//         randomIndex = Math.floor(Math.random() * notLeft.length);
+//     }
+//     else if (ghostLocation.x+1 == 0) { //CAN'T GO RIGHT
+//         var notRight = [0,2,3];
+//         randomIndex = Math.floor(Math.random() * notRight.length);
+//     }
+//     else if (ghostLocation.y+1 == 0) { //CAN'T GO DOWN
+//         var notDown = [0,1,3];
+//         randomIndex = Math.floor(Math.random() * notDown.length);
+//     }
+//     else if (ghostLocation.y-1 == 0) { //CAN'T GO UP
+//         notUp = [0,1,2];
+//         randomIndex = Math.floor(Math.random() * notUp.length);
+//     }
+//     ghostMovement = Object.values(ghostMoveOptions)[randomIndex];
+// console.log(randomIndex);
+// }
+
+// function ghostStep() {
+//     if (randomIndex == 0) {
+//         ghostLocation.x-1;
+//     }
+//     else if (randomIndex == 1) {
+//         ghostLocation.x+1;
+//     }
+//     else if (randomIndex == 2) {
+//         ghostLocation.y+1;
+//     }
+//     else if (randomIndex == 3) {
+//         ghostLocation.y-1;
+//     }
+// console.log(ghostMovement);
+// console.log(ghostLocation);
+// }
+
+// ghostStep()
 
 
 //console.log(ghostLocation);
